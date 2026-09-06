@@ -1,0 +1,47 @@
+00 - Intro
+
+What is the Web?
+- The World Wide Web is a collection of information accessible throught the Internet.
+- Computers connected to the web are called a client to server relationship.
+
+
+HTTP
+- Web clients and server communicate over the HTTP protocol.
+- The client initiates by sending an HTTP request messagge to the server, then passes a HTTP response to the client..
+- The server responds with an HTTP response message, through the server to the client.
+
+
+Client Request
+- EX: Using a URL in a browser and searching it.
+- URL (Uniform Resource Locator): An identifier for the location of a document.
+- Scheme: Indicates the protocol that the browser must utilize to request the resource.
+- Domain Name: Indicates which Web server is being requested.
+- Port Number: Indicates which application on the server willl receive the message.
+- Path: Direction to the resource on the Web server.
+
+http - Scheme
+www.example.com - Domain Name
+80 - Port
+/path/to/myfile.html - Path to the file
+
+http://www.example.com:80/path/to/myfile.html
+
+
+Where is the server?
+- Domain name is not an IP address.
+- Instead, to identify the server location, you request the IP address from Domain Name Service (DNS).
+
+ Web            --> Domain Name -->     DNS
+Client          <-- IP Address <--
+
+
+- Send an HTTP request to the web server identifies by the IP address.
+- Web server locates the resource and sends a response.
+- Upon receiving the response, the browser parses the information and renders the page.
+
+Load    ->  Parse   ->      Create DOM tree  -> Display
+HTML        HTML
+             |                        /\
+             v                        |
+            Load    ->  Parse CSS   ---
+            CSS
