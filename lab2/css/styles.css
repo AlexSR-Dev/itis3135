@@ -52,6 +52,17 @@ h4 {
 
 /* Header Styles */
 
+header {
+  color: var(--clr-neutral);
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+header p {
+  color: var(--clr-neutral75);
+}
+
 /* Main Styles */
 
 /* About Section */
