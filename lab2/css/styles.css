@@ -65,6 +65,29 @@ header p {
 
 /* Main Styles */
 
+main {
+  background-color: var(--clr-neutral);
+  width: 80%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2rem;
+}
+
+main h3,
+main h4 {
+  color: var(--clr-primary);
+  margin-bottom: 1rem;
+}
+
+main h4 {
+  text-align: center;
+}
+
+main > section:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 /* About Section */
 
 /* Menu Section */
@@ -84,10 +107,12 @@ hr {
 
 .title {
   width: 75%;
+  text-align: left;
 }
 
 .price {
   width: 25%;
+  text-align: right;
 }
 
 /* Location and Hours Section */
