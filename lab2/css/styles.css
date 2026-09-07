@@ -153,3 +153,13 @@ hr {
 }
 
 /* Footer Section */
+
+footer {
+  background-color: var(--clr-bg);
+  color: var(--clr-neutral);
+  font-size: 0.833rem;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+}
