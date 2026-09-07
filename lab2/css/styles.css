@@ -90,6 +90,19 @@ main > section:not(:last-child) {
 
 /* About Section */
 
+#about p {
+  margin-bottom: 0.5rem;
+}
+
+#about li {
+  list-style: none;
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  padding-left: 1.5em;
+  background-position: 0 0.3em;
+}
+
 /* Menu Section */
 
 hr {
