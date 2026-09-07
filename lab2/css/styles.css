@@ -130,4 +130,26 @@ hr {
 
 /* Location and Hours Section */
 
+#location div {
+  text-align: center;
+}
+
+#location iframe {
+  width: 360px;
+  height: 270px;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+#location a {
+  color: var(--clr-primary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+#location a:hover,
+#location a:active {
+  border-color: var(--clr-primary);
+}
+
 /* Footer Section */
