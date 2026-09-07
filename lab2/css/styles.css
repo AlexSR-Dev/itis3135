@@ -1,44 +1,84 @@
 /* CSS Variables */
 
+:root {
+  --clr-primary: #9c5526;
+  --clr-bg: #54331d;
+  --clr-neutral: #ede7e3;
+  --clr-black: hsla(30, 4%, 20%, 0.8);
+  --clr-neutral75: hsl(24, 22%, 91%, 0.75);
+}
 
 /* Global Styles */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--clr-black);
+  line-height: 1.5;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/coffee.jpeg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+h1,
+h3,
+h4 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.488rem;
+}
+
+h3 {
+  font-size: 1.728rem;
+}
+
+h4 {
+  font-size: 1.44rem;
+}
 
 /* Header Styles */
 
-
 /* Main Styles */
-
 
 /* About Section */
 
-
 /* Menu Section */
 
-
 hr {
-    height: 3px;
+  height: 3px;
 }
 
 .item {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .item p {
-    display: inline-block;
+  display: inline-block;
 }
 
-
 .title {
-    width: 75%;
+  width: 75%;
 }
 
 .price {
-    width: 25%;
+  width: 25%;
 }
 
 /* Location and Hours Section */
-
 
 /* Footer Section */
