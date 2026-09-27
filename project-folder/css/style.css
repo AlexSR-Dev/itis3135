@@ -1,0 +1,621 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap');
+
+/* ================================
+Color Palette
+================================ */
+
+:root {
+--color-primary: #1f3a5f;
+--color-accent: #e07a5f;
+--color-background: #f7f5f2;
+--color-surface: #ffffff;
+--color-text: #1f2933;
+--color-muted: #5c6770;
+--color-light: #e8edf2;
+}
+
+
+/* ================================
+Typography
+================================ */
+
+
+/* Basic reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+/* Base page typography */
+body {
+font-family: 'Barlow Semi Condensed', Arial, sans-serif;
+font-size: 1rem;
+line-height: 1.5;
+}
+
+/* Main heading */
+h1 {
+font-size: 2.5rem;
+line-height: 1.1;
+}
+
+/* Section headings */
+h2 {
+font-size: 2rem;
+line-height: 1.2;
+}
+
+/* Subheadings */
+h3 {
+font-size: 1.5rem;
+line-height: 1.3;
+}
+
+/* Paragraphs */
+p {
+line-height: 1.5;
+}
+
+/* Links */
+a {
+text-decoration: none;
+}
+
+/* ================================
+Project Cards
+================================ */
+
+.projects {
+padding: 3rem 1.5rem;
+background-color: var(--color-background);
+}
+
+.projects-intro {
+max-width: 70ch;
+margin: 0 auto 2rem;
+}
+
+.project-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 1.5rem;
+}
+
+.project-card {
+width: 100%;
+background-color: var(--color-surface);
+border-radius: 0.75rem;
+overflow: hidden;
+}
+
+.project-card img {
+display: block;
+width: 100%;
+height: auto;
+}
+
+.project-card figure {
+margin: 0;
+}
+
+.project-card figcaption {
+padding: 0.5rem 1.5rem 1rem;
+color: var(--color-muted);
+font-size: 0.875rem;
+line-height: 1.4;
+}
+
+.project-card figcaption a {
+color: var(--color-primary);
+text-decoration: underline;
+}
+
+.project-card figcaption a:hover,
+.project-card figcaption a:focus-visible {
+color: var(--color-accent);
+}
+
+
+.project-content {
+padding: 1.5rem;
+}
+
+.project-card h2 {
+margin-bottom: 0.75rem;
+}
+
+.project-card p {
+color: var(--color-muted);
+}
+
+/* ================================
+Mobile-First Page Layout
+================================ */
+
+/* Page structure */
+body {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+background-color: var(--color-background);
+color: var(--color-text);
+}
+
+main {
+flex: 1;
+width: 100%;
+}
+
+/* ================================
+Header
+================================ */
+
+header {
+padding: 1.5rem;
+background-color: var(--color-primary);
+color: var(--color-surface);
+}
+
+.site-branding a {
+color: var(--color-surface);
+font-size: 1.75rem;
+font-weight: 700;
+}
+
+.site-branding p {
+margin-top: 0.25rem;
+color: var(--color-light);
+}
+
+/* ================================
+Navigation
+================================ */
+
+nav {
+background-color: var(--color-primary);
+}
+
+nav ul {
+display: flex;
+flex-direction: column;
+list-style: none;
+}
+
+nav a {
+display: block;
+padding: 0.75rem 1.5rem;
+color: var(--color-surface);
+font-weight: 600;
+}
+
+nav a:hover,
+nav a:focus-visible {
+background-color: var(--color-accent);
+}
+
+/* ================================
+Hero
+================================ */
+
+.hero {
+padding: 4rem 1.5rem;
+background-color: var(--color-primary);
+color: var(--color-surface);
+}
+
+.hero-content {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 2px solid var(--color-light);
+    border-radius: 2rem;
+}
+
+.hero-eyebrow,
+.section-eyebrow {
+margin-bottom: 0.5rem;
+color: var(--color-accent);
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+}
+
+.hero h1 {
+margin-bottom: 0.75rem;
+}
+
+.hero h2 {
+margin-bottom: 1rem;
+color: var(--color-light);
+}
+
+.hero p:not(.hero-eyebrow) {
+margin-bottom: 1.5rem;
+}
+
+/* ================================
+Button
+================================ */
+
+.button {
+display: inline-block;
+padding: 0.75rem 1.25rem;
+background-color: var(--color-accent);
+color: var(--color-surface);
+border-radius: 0.5rem;
+font-weight: 700;
+}
+
+.button:hover,
+.button:focus-visible {
+background-color: var(--color-surface);
+color: var(--color-primary);
+}
+
+/* ================================
+About
+================================ */
+
+.about {
+padding: 4rem 1.5rem;
+}
+
+.about-content {
+max-width: 70ch;
+margin: 0 auto;
+}
+
+.about h2 {
+margin-bottom: 1rem;
+}
+
+.about p {
+margin-bottom: 1.25rem;
+}
+
+.about h3 {
+margin-top: 2rem;
+margin-bottom: 0.75rem;
+}
+
+.about ul {
+padding-left: 1.5rem;
+}
+
+/* ================================
+Contact
+================================ */
+
+.contact {
+padding: 4rem 1.5rem;
+background-color: var(--color-light);
+}
+
+.contact-content {
+max-width: 65ch;
+margin: 0 auto;
+}
+
+.contact h2 {
+margin-bottom: 1rem;
+}
+
+.contact-content > p {
+margin-bottom: 1.5rem;
+}
+
+.contact-information {
+margin-bottom: 2rem;
+}
+
+.contact-information h3 {
+margin-bottom: 0.5rem;
+}
+
+.contact-information a {
+color: var(--color-primary);
+font-weight: 600;
+}
+
+form {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+gap: 0.4rem;
+}
+
+.form-group label {
+font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 0.75rem;
+border: 2px solid var(--color-muted);
+border-radius: 0.4rem;
+background-color: var(--color-surface);
+color: var(--color-text);
+font: inherit;
+}
+
+.form-group textarea {
+resize: vertical;
+}
+
+form button {
+align-self: flex-start;
+padding: 0.75rem 1.25rem;
+border: none;
+border-radius: 0.5rem;
+background-color: var(--color-primary);
+color: var(--color-surface);
+font: inherit;
+font-weight: 700;
+cursor: pointer;
+}
+
+form button:hover,
+form button:focus-visible {
+background-color: var(--color-accent);
+}
+
+/* ================================
+Footer
+================================ */
+
+footer {
+padding: 1.5rem;
+background-color: var(--color-primary);
+color: var(--color-surface);
+}
+
+footer p {
+margin-bottom: 1rem;
+}
+
+footer ul {
+display: flex;
+gap: 1rem;
+list-style: none;
+}
+
+footer a {
+color: var(--color-surface);
+}
+
+footer a:hover,
+footer a:focus-visible {
+color: var(--color-accent);
+}
+
+/* ================================
+Desktop Layout
+================================ */
+
+@media (min-width: 768px) {
+
+/* Header */
+header {
+    padding: 2rem 3rem;
+}
+
+/* Navigation */
+nav ul {
+    flex-direction: row;
+    justify-content: center;
+}
+
+nav a {
+    padding: 0.75rem 1.5rem;
+}
+
+/* Hero */
+.hero {
+    padding: 6rem 3rem;
+}
+
+.hero-content {
+    padding: 2.5rem;
+}
+
+/* About */
+.about {
+    padding: 5rem 3rem;
+}
+
+/* Contact */
+.contact {
+    padding: 5rem 3rem;
+}
+
+/* Projects */
+.projects {
+    padding: 5rem 3rem;
+}
+
+.project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    padding: 2rem 3rem;
+}
+
+
+
+}
+
+/* ================================
+Interactive States
+================================ */
+
+/* General links */
+a {
+transition:
+color 0.2s ease,
+background-color 0.2s ease,
+opacity 0.2s ease;
+}
+
+/* Navigation links */
+nav a:hover {
+color: var(--color-surface);
+background-color: var(--color-accent);
+}
+
+nav a:active {
+background-color: var(--color-surface);
+color: var(--color-primary);
+}
+
+nav a:focus-visible {
+outline: 3px solid var(--color-accent);
+outline-offset: 2px;
+}
+
+/* Hero button */
+.button {
+transition:
+background-color 0.2s ease,
+color 0.2s ease,
+transform 0.2s ease;
+}
+
+.button:hover {
+background-color: var(--color-surface);
+color: var(--color-primary);
+transform: translateY(-2px);
+}
+
+.button:active {
+transform: translateY(0);
+}
+
+.button:focus-visible {
+outline: 3px solid var(--color-surface);
+outline-offset: 3px;
+}
+
+/* Contact email */
+.contact-information a:hover {
+color: var(--color-accent);
+}
+
+.contact-information a:active {
+color: var(--color-primary);
+}
+
+.contact-information a:focus-visible {
+outline: 3px solid var(--color-accent);
+outline-offset: 2px;
+}
+
+/* Form button */
+form button {
+transition:
+background-color 0.2s ease,
+transform 0.2s ease;
+}
+
+form button:hover {
+background-color: var(--color-accent);
+transform: translateY(-2px);
+}
+
+form button:active {
+transform: translateY(0);
+}
+
+form button:focus-visible {
+outline: 3px solid var(--color-accent);
+outline-offset: 3px;
+}
+
+/* Footer links */
+footer a:hover {
+color: var(--color-accent);
+}
+
+footer a:active {
+color: var(--color-surface);
+}
+
+footer a:focus-visible {
+outline: 3px solid var(--color-accent);
+outline-offset: 2px;
+}
+
+/* Form controls */
+.form-group input:focus,
+.form-group textarea:focus {
+border-color: var(--color-primary);
+outline: 3px solid var(--color-accent);
+outline-offset: 1px;
+}
+
+/* ================================
+Readability & Accessibility
+================================ */
+
+/* Keep major text blocks at a readable width */
+.hero-content,
+.about-content,
+.contact-content,
+.projects-intro {
+width: 100%;
+}
+
+/* Improve paragraph readability */
+.hero-content p,
+.about-content p,
+.contact-content > p,
+.projects-intro > p {
+max-width: 70ch;
+}
+
+/* Improve spacing between major sections */
+.hero,
+.about,
+.contact,
+.projects {
+scroll-margin-top: 1rem;
+}
+
+/* Make keyboard focus easier to see */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+outline-style: solid;
+}
+
+/* Prevent images from creating unexpected overflow */
+img {
+max-width: 100%;
+}
+
+/* Improve form readability */
+input,
+textarea,
+button {
+font-size: 1rem;
+}
+
+/* Allow long text and links to wrap naturally */
+p,
+li,
+a {
+overflow-wrap: break-word;
+}
