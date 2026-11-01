@@ -33,7 +33,7 @@ In HTML, the <meta> element is offical representation of this, alongside other t
 In the following instance:
 <meta charset="utf-8" />
 
-- The element specifies the document's character encoding, the set the document is allowed to use.
+- The element specifies the document's character encoding, used to represent text in the document.
 In this case "utf-8" includes any character from most human languages to be displayed on the web page.
 
 - There are additional attribute values to encode such as "ISO-8859-1" for Latin.
@@ -55,7 +55,7 @@ complete beginners to the Web with all they need to know to get
 started with developing websites and applications." />
 
 NOTE:
-- Specification of description with keywords of the relevant content, have more chances to appear in relevant searches from search
+- Specification of description with keywords of the relevant content, can help represent to appear in relevant searches from search
 engines.
 
 For instance the previous example, if searched with the keyword "MDN Web Docs" would be found with the description
@@ -134,9 +134,9 @@ NOTE: The <link> element should be implemented in the <head> element.
 - JavaScript to provide the interactive functionality, like videoes, maps, games, and etc.
 
 - Commonly applied in the web page with the <link> element and <script> element.
-: Both element should be incorporated at the <head> element.
+: Both elements should be incorporated at the <head> element.
 
-- <link> element only takes two attributes:
+- <link> element can have multiple attributes (this instance provides the relation to incorporate the .css file):
 <link rel="stylesheet" href="my-css-file.css" />
 
 - <script> element requires the "src" attribute containing the path of the JS script to load, and "defer" a boolean attribute
@@ -161,3 +161,41 @@ to instruct the browser to load the JS script after parsing HTML.
 - Additionally, you can set subsections of you document to be recognized as different languages.
 The following instances sets the Japanese language section to be recognized as Japanese:
 <p>Japanese example: <span lang="ja">ご飯が熱い。</span>.</p>
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Practical Question)
+1. Give the document a browser-tab title.
+- To provide a browser-tab title, it must be incorporated within the head section as its considered the metadata of the webpage.
+Moreover, you must implement the <title> element within the head section with its respective closing tag as its not a void element and
+indicate the title you would like in between.
+
+2. Set its character encoding.
+- Character encoding or the text represented on the webpage, should be set at the head section of the webpage with the <meta> element.
+Additionally, the attribute "charset" should be assigned to "utf-8" to represent most languages avaliable on the webpage.
+
+3. Provide a short description for search results.
+- Search results for webpages are often found with specification of the <meta> element attributes. For instance, the "name" attribute
+represents the designation of the "content" attribute, which describes evaluated information to be represented. Like name="description" and content="This story is about...". Thus indications that are found on the content attribute are likely to be found in search engines, but
+not guarenteed.
+
+4. Connect an external CSS file.
+- Firsly, you must incoporate the <link> element within the head section, as this information would not be shown to the user. As to linking
+the CSS file to the html file, you must implement the "rel" attribute to tell the browser the file being added and more importantly the 
+"href" attribute to provide the file pathway to the .css file to locate and access.
+
+5. Load an external JavaScript file after HTML parsing.
+- Likewise to the placement of a CSS file, at the <head> section, but instead of <link>, use <script> element to reference the Javascript
+file with the attribute "src" for the file pathway. Also, the boolean attribute "defer" should be implemented in the same element to
+load the file after HTML parsing.
+
+6. Identify the document's primary language.
+- Found at the opening tag of <html>, with the addition of the "lang" attribute assigned with the corresponding pre-defined language
+to be set, for instance "en-US" would be for english in the United States.
+
+02-html-section
+- 01-exercise.html
+
+
+----------------------------------------------------------------------------------------------------------------------------------

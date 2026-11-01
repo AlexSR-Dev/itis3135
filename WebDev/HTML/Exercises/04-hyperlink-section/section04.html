@@ -1,0 +1,61 @@
+<!--
+Implementation checklist
+0 of 6
+
+[ ] 1. Document setup
+Create a valid HTML document with a doctype, html element with lang="en-US", head, UTF-8 charset, a title of "Section 04 - Hyperlinks", and body.
+
+[ ] 2. Internal and external links
+Add a link to contacts.html using a relative path and a link to https://developer.mozilla.org/en-US/docs/Web/HTML using a full URL.
+
+[ ] 3. Image or block-level link
+Create a link that wraps an image or a heading. Use an image you already have in your project, or choose the heading option if you do not have an image.
+
+[ ] 4. Fragment link
+Create a section with id="mailing_address" and a link that jumps to it.
+
+[ ] 5. Download link
+Create a link to pdfs/project-brief.pdf that includes the download attribute and link text that clearly communicates the file is a PDF download.
+
+[ ] 6. Email link
+Create a mailto: link to a fictional email address, with a subject parameter in the URL.
+-->
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Section 04 - Hyperlinks</title>
+    </head>
+    <body>
+        <h1 id="section_04">Section 04 - Hyperlinks</h1>
+        <p>Welcome to the Hyperlinks section. Below are various types of links you can use in your HTML documents.</p>
+        
+        
+        <h2>Internal and External Links</h2>
+        <p>Here is a link to <a href="contacts.html">our contact page</a> and a link to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN's HTML documentation</a>.</p>
+        
+        <h2>Image or Block-Level Link</h2>
+        <p>Here is a link that wraps an image:</p>
+        <a href="https://youtube.com" target="_blank">
+            <img src="../images/img.png" alt="Sample Image" width="200">
+        </a>
+
+
+        <h2>Fragment Link</h2>
+        <p>Jump to the <a href="#mailing_address">mailing address section</a>.</p>
+        <section id="mailing_address">
+            <h3>Mailing Address</h3>
+            <p>1234 Example Street<br>
+            City, State, ZIP Code</p>
+        </section>
+
+
+        <h2>Download Link</h2>
+        <p>Download our project brief: <a href="pdfs/project-brief.pdf" download>Download Project Brief (PDF)</a></p>
+
+
+        <h2>Email Link</h2>
+        <p>Contact us via email: <a href="mailto:info@example.com?subject=Inquiry">Send us an email</a></p>
+        
+    </body>
+</html>
