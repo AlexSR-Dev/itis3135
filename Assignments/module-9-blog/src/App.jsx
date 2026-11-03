@@ -1,25 +1,41 @@
+import { 
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate
+} from "react-router";
+
 import Navbar from "./components/Navbar";
-import BlogPost from "./components/BlogPost";
-import CommentSection from "./components/CommentSection";
 import Footer from "./components/Footer";
+
+import BlogPostsPage from "./pages/BlogPostsPage";
+import IndividualPostPage from "./pages/IndividualPostPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
-    <div id="home" className="page-background">
-      <div className="page-layout">
-        <Navbar />
+    <BrowserRouter>
+      <div id="home" className="page-background">
+        <div className="page-layout">
+          <Navbar />
 
-        <div className="page-frame">
-          <main className="container">
+          <div className="page-frame">
+            <main className="container">
 
-            <BlogPost />
-            <CommentSection />
-          </main>
+              <Routes>
+                <Route path="/" element={<Navigate to="/posts" replace />} />
+                <Route path="/posts" element={<BlogPostsPage />} />
+                <Route path="/posts/:postId" element={<IndividualPostPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="*" element={<h1>Page Not Found</h1>} />
+              </Routes>
+            </main>
 
-          <Footer />
+            <Footer />
+          </div>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

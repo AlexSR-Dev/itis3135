@@ -272,5 +272,93 @@ body {
   .blog-post,
   .comment-section {
     padding: 18px;
+
+  .contact-page {
+    padding: 18px;
+  }
+  }
+
+
+  /* Contact Page Styling */
+
+  .contact-page {
+    padding: 28px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 rgb(7 29 73 / 5%);
+  }
+
+  .contact-page h1 {
+    margin-top: 0;
+    padding-bottom: 16px;
+    color: var(--bayern-navy);
+    border-bottom: 2px solid var(--bayern-navy);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+  }
+
+  .contact-form label {
+    color: var(--bayern-navy);
+    font-weight: 700;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c8ccd3;
+    border-radius: 7px;
+    background: white;
+    color: var(--ink);
+    font: inherit;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid var(--bayern-blue);
+    outline-offset: 2px;
+  }
+
+  .contact-form button {
+    align-self: flex-start;
+    padding: 11px 18px;
+    color: white;
+    background: var(--bayern-red);
+    border: 2px solid var(--bayern-red);
+    border-radius: 7px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .contact-form button:hover {
+    background: var(--bayern-navy);
+    border-color: var(--bayern-navy);
+  }
+
+  /* Blog Post Navigation Links */
+  .blog-post-list > div {
+    margin-bottom: 24px;
+  }
+
+  .blog-post-list a {
+    display: inline-block;
+    margin: 0 0 20px 8px;
+    padding: 9px 12px;
+    color: white;
+    background: var(--bayern-blue);
+    border-radius: 7px;
+    font-weight: 700;
   }
 }

@@ -1,70 +1,35 @@
 import {useState} from "react";
 import {initialComments} from "../data/blogData";
+import CommentList from "./CommentList";
+import CommentForm from "./CommentForm";
 
-function CommentSection() {
-    const [comments, setComments] = useState(initialComments);
-    const [author, setAuthor] = useState("");
-    const [text, setText] = useState("");
+// 08 Latest update: import the CommentList and CommentForm components to render the list of comments and handle new comments
 
-    function handleSubmit(event) {
-        event.preventDefault();
+function CommentSection({ postId }) {
+    const [commentsByPost, setCommentsByPost] = useState({ 1: initialComments });
 
-        if(!author.trim() || !text.trim()) {
-            return;
-        }
+    const comments = commentsByPost[postId] || [];
 
-        const newComment = {
+    function handleAddComment(newComment) {
+        const commentWithId = {
             id: Date.now(),
-            author: author.trim(),
-            text: text.trim()
+            ...newComment
         };
 
-        setComments((previousComments) => [
-            ...previousComments,
-            newComment
-        ]);
-
-        setAuthor("");
-        setText("");
+        setCommentsByPost((prevCommentsByPost) => ({
+            ...prevCommentsByPost,
+            [postId]: [...(prevCommentsByPost[postId] || []), commentWithId]
+        }));
     }
 
     return (
         <section id="comments" className="comment-section">
             <h2>Comments</h2>
-
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="comment-author">Author</label>
-                <input
-                    id="comment-author"
-                    type="text"
-                    value={author}
-                    onChange={(event) => setAuthor(event.target.value)}
-                    placeholder="Author name"
-                    required
-                />
-
-                <label htmlFor="comment-text">Comment</label>
-                <textarea
-                    id="comment-text"
-                    value={text}
-                    onChange={(event) => setText(event.target.value)}
-                    placeholder="Write a comment here..."
-                    required
-                />
-
-                <button type="submit">Submit Comment</button>
-            </form>
-
-            <div className="comments-list">
-                {comments.map((comment) => (
-                    <article className="comment" key={comment.id}>
-                        <h3>{comment.author}</h3>
-                        <p>{comment.text}</p>
-                    </article>
-                ))}
-            </div>
+            <CommentList comments={comments} />
+            <CommentForm onAddComment={handleAddComment} />
         </section>
-    )
+    );
 }
 
 export default CommentSection;
+        

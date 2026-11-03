@@ -1,15 +1,15 @@
-import { blogPost } from "../data/blogData";
+// 02 Updated, instead of importing a single blog post, the component now accepts a post as a prop.
 
-function BlogPost() {
+function BlogPost({ post }) {
     return (
-        <article id="blog-post" className="blog-post">
-            <h2>{blogPost.title}</h2>
+        <article className="blog-post">
+            <h2>{post.title}</h2>
 
             <p className="post-meta">
-                By {blogPost.author} | Published on {blogPost.date}
+                By {post.author} | Published on {post.date}
             </p>
 
-            <p>{blogPost.content}</p>
+            <p>{post.content}</p>
         </article>
     );
 }
