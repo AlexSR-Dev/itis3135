@@ -217,6 +217,7 @@ Building a Form Structure:
 
 
 ----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -398,24 +399,127 @@ EX: The following displays the differences of style being utilized:
 ----------------------------------------------------------------------------------------------------------------------------------
 
 08.2.6) Common form-control attributes
+- Elements that defines form controls have specific attributes to implement.
+The following displays common attributes:
+
+'autofocus' - Default to "false", is a boolean attribute specifying that the element should have input focus when the page loads.
+- Only one form-associated element in a doc can have this attribute specified to "true".
+
+'disabled' - Defaults to "false", is a boolean attribute that indicates the user cannot interact with the element.
+- NOTE: if this attribute isn't implemented, the element is enabled.
+
+<form> - An element that widgets associate with. The value of the attribute must be the 'id' attribute of the <form> element in
+the same doc. Thus, allowing interaction with a form it is outside of.
+
+'name' - An attribute, indicating the name of the element that's submitted with the form data.
+
+'value' - An attribute indicating the element's initial value.
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
 08.3 - HTML5 Input Types
+- THe functionality of some input types.
 
 08.3.1) Email Fields
+- Implemented with the <input> 'type' attribute set to value "email".
+- The value entered must be an email addresss to be valid, else an error.
+<input type="email" id="email" name="email" />
+
+- The instance above creates an 'email' textbox
+
+'muliple' - Attribute can be implemented to allow several comma-separated email addresses in the same input:
+<input type="email" id="email" name="email" multiple />
+
+NOTE: That inputs like 'a@b' is a valid address due to the default contraints.
+- To implement different validation behavior, use the 'pattern' attribute.
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.3.2) Search Fields
+- Implemented with the <input> 'type' attribute set to value "search".
+- Creates a textbox intended to search on pages/apps.
+<input type="search" id="search" name="search" />
+
+- Note the appearence of the textbox varies based on browser styles.
+ALSO: Values of a 'search' field can be automatically saved and re-used for auto-completion across multiple pages of the same webpage.
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.3.3) Telephone Fields
+- Implemented with the <input> 'type' attribute set to value "tel"
+- Creates a textbox, however due to the variety of phone number formats, the default constraints allow letters, nums, etc.
+THUS: Use the 'pattern' attribute to enforce contraints.
+<input type="tel" id="tel" name="tel" />
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.3.4) URL Fields
+- Implemented with <input> 'type' attribute set to "url"
+- Creates a textbox, with a special validation contraints to the field, in that the browser reports and error if no protocol (http)
+is entered.
+<input type="url" id="url" name="url" />
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.3.5) Numeric Fields
+- Implemented with <input> 'type' attribute set to "number"
+- Creates a textbox, that allows float numbers (not decimal, but dataType size), also may provide a type of spinner or increment /
+decrement control by default.
+<input type="number" id="number" name="number" />
+
+'min' & 'max' - Attributes can be implement to contrain the limit values.
+'step' - Attribute to set the fixed increment increase & decrease in the control.
+
+EX: Creates a number control with valid value restircted to odd values between 1 & 10. Note you can still input even, but manually.
+<input type="number" name="age" id="age" min="1" max="10" step="2" />
+
+NOTE: To allow float numbers, specify the 'step = "any"' or specific values 'step="0.01"'. Otherwise by default whole numbers are valid
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.3.6) Slider Controls
+- Usage-wise are less accurate than text fields for precision.
+- Implemented with <input> 'type' attribute set to "range"
+- RECOMMENDED be configured, to set 'min', 'max', and 'step' attributes for the limits and incrementation values.
+
+<label for="price">Choose a maximum house price: </label>
+<input
+  type="range"
+  name="price"
+  id="price"
+  min="50000"
+  max="500000"
+  step="1000"
+  value="250000" />
+<output class="price-output" for="price"></output>
+
+- In the instance above, creates a slider widget that starts at 250000. with a min or 50,000 and a max of 500,000 with increments of 
+1000.
+NOTE: Sliders don't provide visual indications of the number.
+THUS: <output> element is implemented to display the current value. Also the 'for' attribute allows elements to associate.
+
+REFERENCE: To display the current value and update it as it changes JS must be implemented:
+const price = document.querySelector("#price");
+const output = document.querySelector(".price-output");
+
+output.textContent = price.value;
+
+price.addEventListener("input", () => {
+  output.textContent = price.value;
+});
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.3.7) Date and Time Pickers
+- kf
 
 08.3.8) Color Picker Controls
 
