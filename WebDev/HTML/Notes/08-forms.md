@@ -519,16 +519,222 @@ price.addEventListener("input", () => {
 ----------------------------------------------------------------------------------------------------------------------------------
 
 08.3.7) Date and Time Pickers
-- kf
+- A calender UI. Additionally it can be expressed in the last minute of the previous period:
+1999/12/31, 23:59, 12/31/99T11:59PM.
+
+- Implemented with <input> and appropriate value for 'type' attribute depending of the variation of time/dates/both.
+
+"date" - Type attribute value, creates a widget to display (year, moth, and day, no time)
+<input type="date" name="date" id="date" />
+
+"datatime-local" - Type attribute value, creates a widget to display and pick a date & time with no time zone.
+<input type="datetime-local" name="datetime", id='datetime' />
+
+"month" - Type attribute value, creates a display to choose a month with a year.
+<input type="month", name="month", id="month" />
+
+"time" - Type attribute value, creates a widget to pick a time value.
+NOTE: The time are within a 12 hour and 59 minute format, with PM & AM. BUT the value returned is in 24-hour format.
+<input type="time", name="time", id="time" />
+
+"week" - TYpe attribute value, creates a widget to choose a week number and its year.
+NOTE: The beginning of the that week may not include the first day of year, and may include days of the previous year.
+<input type="week", name="week", id="week">
+
+CONSTRAINTS:
+- All date and time controls can be constainted with 'min' and 'max' attribute for limits.
+- 'step' attribute for incrementation
+
+EX:
+<label for="myDate">When are you available this summer?</label><br />
+<input
+  type="date"
+  name="myDate"
+  min="2025-06-01"
+  max="2025-08-31"
+  step="7"
+  id="myDate" />
+
+- The instance above creates a description along with a "date" widget confined within 2025's 06-08 and can only choose 
+incrementations of every 7 days starting from the 'min', in this case is a Sunday, so only those days can be choosen.
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.3.8) Color Picker Controls
+- Can be expressed in RGB (decimal/hexadecimal), HSL values, keywords, etc.
+- Implemented with <input> with its 'type' attribute set to value "color".
+<input type="color" name="color" id="color" />
+
+- By activating the color control, the OS displays a default color-picking function to choose.
+NOTE: Value returned is always lowercase 6-value hexadecimal color.
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
 08.4 - Other Form Controls
+- Functionality of non <input> form elements.
 
 08.4.1) Multi-line Text Fields (<textarea>)
+- Implemented with <textarea>, rather than <input>.
+<textarea cols="30" rows="8"></textarea>
+- The instance above creates and styles a textbox.
+
+DIFFERENCE:
+- Users can include hard line breaks that included in the data submitted.
+- Has opening & closing tags to include content in between as deafult text in the box.
+NOTE: For <input>, default text are included in the 'value' attribute.
+
+- Attributes to control its rendering across several lines: 'cols', 'rows', 'wrap'.
+NOTES: 'wrap' has 3 predefined values.
+ALSO: Can be styled with CSS 'resize' property.
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.4.2) Drop-down Controls (<select>, <option>, etc)
+- Select many option withing using a lot of user interface.
+- Types select box and autocomplete box.
+
+SELECT BOX:
+- Implemented with <select> with one or more <option> nested within, each specifies a possible value.
+- 'selected' attribute sets a preselected option when the page loads.
+<select id="simple" name="simple">
+  <option>Banana</option>
+  <option selected>Cherry</option>
+  <option>Lemon</option>
+</select>
+
+- The instance above creates a drop box with Cherry already selected & the drop box is the same structure as the code.
+
+- <optgroup> - Creates a grouping of options, by nesting <option> within it. Basically titles/category for every option list.
+'label' - Attribute is to indicate and display the name of the group of options. Mandatory.
+
+<select id="groups" name="groups">
+  <optgroup label="fruits">
+    <option>Banana</option>
+    <option selected>Cherry</option>
+    <option>Lemon</option>
+  </optgroup>
+  <optgroup label="vegetables">
+    <option>Carrot</option>
+    <option>Eggplant</option>
+    <option>Potato</option>
+  </optgroup>
+</select>
+
+- The instance above has a drop box preselected to Cherry, but the structure of the drop box has two unclickable titles:
+fruits and vegetables, with three different options for each group.
+
+'value' - Attribute implemented in <option>, would use that value when the form is submitted with the option displayed/selected.
+- If omitted, the content of <option> would be used instead.
+
+<select id="simple" name="simple">
+  <option value="banana">Big, beautiful yellow banana</option>
+  <option value="cherry">Succulent, juicy cherry</option>
+  <option value="lemon">Sharp, powerful lemon</option>
+</select>
+
+- The instance above displays different drop box options, HOWEVER the values sent would use the 'value' attribute.
+
+'size' - Attribute implemented in <select>, defines the number of options shown to the user. By default its a drop box.
+NOTE: Must be a valid non-negative integer greater than zero. Also instead of a box dropping it displays the entire box.
+
+<select id="fruit" name="fruit" size="3">
+
+
+
+MULTIPLE CHOICE SELECT BOX:
+- Implemented wiht <select> with 'multiple' attribute to allow users to select several values
+
+<select id="multi" name="multi" multiple size="3">
+  <optgroup label="fruits">
+    <option>Banana</option>
+    <option selected>Cherry</option>
+    <option>Lemon</option>
+  </optgroup>
+  <optgroup label="vegetables">
+    <option>Carrot</option>
+    <option>Eggplant</option>
+    <option>Potato</option>
+  </optgroup>
+</select>
+
+- In the instance above, creates a scroll wheel box with a limited size. Additionally, the options are grouped with cherry
+already pre-selected.
+
+
+
+AUTOCOMPLETE BOX:
+- Implemented with <datalist> with child <option> to specify values to display. 'id' attribute is needed for <datalist>.
+- Data list is bound to <input> using its 'list' attribute, whose value is the 'id' attribute in <datalist>.
+
+<label for="myFruit">What's your favorite fruit?</label>
+<input type="text" name="myFruit" id="myFruit" list="mySuggestion" />
+<datalist id="mySuggestion">
+  <option>Apple</option>
+  <option>Banana</option>
+  <option>Blackberry</option>
+  <option>Blueberry</option>
+  <option>Lemon</option>
+  <option>Lychee</option>
+  <option>Peach</option>
+  <option>Pear</option>
+</datalist>
+
+- In the instance above, creates a plain box, once activated displays a scroll drop box.
+HOWEVER: Once a choice is decided you must delete that text to display the drop box again. So a autobox.
+
+NOTE: You can bind a <datalist> with <options> to a <input> with 'type' set to "range" for a slider based on the values of options.
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 08.4.3) Other Form Features (<output>, progress indicators, and related controls)
+
+METERS AND PROGRESS BARS
+- Visual representations of numeric values.
+
+METER:
+- Represents a fixed value in a range of 'max' and 'min' values.
+- Renders as a bar, that is defined by comparison of values to others.
+
+• 'low' and 'high' values divide the range into three parts:
+  - Lowwer part of range is between 'min' and 'low' values inclusive.
+  - Medium part is between 'low' and 'high' values exclusive.
+  - Higher part is between 'high' and 'max' values inclusive.
+
+• 'optimum - attribute indicates optimal numeric value for <meter>.
+THUS: defines which part of the range is preferred base on the parts.
+  - If optimum value is in the lower part of the range, lower range is preferred part, medium is average, higher is wort part.
+  - Optimum value is in medium, medium is preferred, and higher is average.
+  - Optimum value is in higher, lower ranger is worst, medium is average, and higher is preferred.
+
+NOTE: All browser implements <meter> with colors based on the values.
+  - Current value in the preferred part of the range, is green.
+  - Current value in average part, is yellow.
+  - Current value in worst part, is red.
+
+<meter min="0" max="100" value="75" low="33" high="66" optimum="0">75</meter>
+
+- The instance above creates a bar whose optimum's value is in the lower part of the range, but the fixed value is set in the
+higher part of the range. Thus, the lower part considers the current value as worst part, and is RED.
+
+
+
+PROGRESS:
+- Represents a value that changes over time up to 'max' attribute.
+- Implemented with <progress>, with 'max' &  'value' attributes.
+'max' - Attribute indicates the amount of work required.
+'value' - Attribute specifies the amount of work completed.
+NOTE: Content within <progress> is fallback for browsers that don't support the element and for screen readers.
+
+<progress max="100" value="75">75/100</progress>
+
+- The instance above creates a blue progression bar that's does not display the percentage completed, but covers a grey totol bar.
+
+----------------------------------------------------------------------------------------------------------------------------------
